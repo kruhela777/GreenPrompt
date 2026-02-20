@@ -23,7 +23,7 @@ A small Electron + React application scaffolded from Create React App and adapte
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yourorg/GreenPrompt.git
+git clone https://github.com/AstroIshu/GreenPrompt.git
 cd GreenPrompt/Analyst
 npm install
 ```
