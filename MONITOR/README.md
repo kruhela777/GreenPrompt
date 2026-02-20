@@ -74,7 +74,7 @@ Perfect for developers or if you want to inspect the code:
 ```bash
 # Clone the repository
 git clone https://github.com/AstroIshu/GreenPrompt
-cd deepseek-chat-exporter
+cd MONITOR
 ```
 
 Then in Chrome:
@@ -82,7 +82,7 @@ Then in Chrome:
 1. Open `chrome://extensions/`
 2. Enable **"Developer mode"** (toggle in top-right)
 3. Click **"Load unpacked"**
-4. Select the `deepseek-chat-exporter` directory
+4. Select the `MONITOR` directory
 5. ✅ Extension installed!
 
 📖 **[Quick Start Guide](QUICKSTART.md)** for detailed testing instructions
@@ -315,7 +315,7 @@ indexedDB.deleteDatabase('DeepSeekChatDB');
 ### Project Structure
 
 ```
-deepseek-chat-exporter/
+MONITOR/
 ├── manifest.json           # Extension configuration
 ├── background.js           # Service worker
 ├── content.js             # Main content script (1544 lines)

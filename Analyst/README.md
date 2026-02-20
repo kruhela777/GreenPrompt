@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# 🌱 Analyst — Electron + React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small Electron + React application scaffolded from Create React App and adapted for desktop use. This repository houses the UI (`src`) and the Electron main process (`src/electron.js`) so you can run the app in both web and desktop environments.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Quick Overview
 
-### `npm start`
+- **Main entry (Electron)**: `src/electron.js`
+- **Web UI**: React app under `src/`
+- **Build target**: `build/` (web) and packaged Electron app via `electron-builder`
+- **Scripts**: `start`, `build`, `test`, `electron`, `package`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Desktop-ready React UI (Electron)
+- Easy local development: hot-reload for React and Electron helper scripts
+- Unit testing with Jest / React Testing Library
+- Packaging support via `electron-builder`
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository and install dependencies:
 
-### `npm run build`
+```bash
+git clone https://github.com/yourorg/GreenPrompt.git
+cd GreenPrompt/Analyst
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Development
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run the web UI (Create React App development server):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+```
 
-### `npm run eject`
+Run Electron (development mode):
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run electron
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Notes:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `npm start` starts the React dev server at http://localhost:3000.
+- `npm run electron` uses `nodemon` + `electron` to restart the app when Electron main files change.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Scripts (most important)
 
-## Learn More
+- `npm start` — Run React dev server
+- `npm run electron` — Start Electron for development
+- `npm run build` — Build React app for production
+- `npm run package` — Package the Electron app (uses `electron-builder`)
+- `npm test` — Run tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+See `package.json` for the full list of scripts and configuration.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
 
-### Code Splitting
+```
+Analyst/
+├─ package.json          # scripts + build config
+├─ public/               # static web assets
+├─ src/
+│  ├─ electron.js        # Electron main process
+│  ├─ index.js           # React entry
+│  ├─ App.jsx
+│  └─ components/        # React components
+└─ README.md
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Architecture & How It Works
 
-### Analyzing the Bundle Size
+1. React provides the renderer (UI) in `src/`.
+2. Electron's `src/electron.js` boots a BrowserWindow and loads the web bundle (or the dev server during development).
+3. IPC channels may be used (if implemented) to communicate between renderer and main process for native functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Testing
 
-### Making a Progressive Web App
+Run unit tests with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm test
+```
 
-### Advanced Configuration
+This project uses Jest and React Testing Library. See `src/App.test.js` for examples.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Building & Packaging
 
-### Deployment
+Build the React production bundle:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm run build
+```
 
-### `npm run build` fails to minify
+Package the Electron app (platform-specific configuration is in `package.json` under `build`):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run package
+```
+
+Check `package.json` `build` section to configure `appID`, icons, and platform options.
+
+## Contributing
+
+Contributions welcome — please follow these steps:
+
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/my-feature`)
+3. Install dependencies and run tests
+4. Open a Pull Request with a clear description
+
+## Notes & Tips
+
+- On Windows you may need to run `npm run electron` from PowerShell with appropriate permissions.
+- If packaging fails due to native code, ensure your Node/Electron versions are compatible and consult `electron-builder` docs.
+
+## License
+
+This project is released under the MIT License. See the `LICENSE` file in the repository root.
+
+---
+
+If you'd like, I can also add a short `QUICKSTART.md` for running Electron locally and a `BUILD.md` for packaging notes.
