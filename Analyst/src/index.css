@@ -1,0 +1,253 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  background: #191d1e;
+  position: relative;
+  overflow: hidden;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: #191d1e; /* Match your app theme */
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#projector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 0rem;
+  max-width: 20rem;
+  /* background-color: #080808; */
+  border-radius: 10px;
+  margin-top: 23rem;
+  left: 45%;
+}
+.returnbutton {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  background: linear-gradient(0deg, #a47cf3, #683fea);
+}
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: rgb(248, 8, 8);
+  font-size: 1.5rem;
+}
+/* Adding the generate button */
+.btn {
+  border: none;
+  width: 15em;
+  height: 5em;
+  border-radius: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: #1c1a1c;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+}
+
+.sparkle {
+  fill: #aaaaaa;
+  transition: all 800ms ease;
+  margin-left: 20px;
+}
+
+.text {
+  font-weight: 600;
+  color: #aaaaaa;
+  font-size: medium;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg, #a47cf3, #683fea);
+  box-shadow:
+    inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 180px 0px #9917ff;
+  transform: translateY(-2px);
+}
+
+.btn:hover .text {
+  color: white;
+}
+
+.btn:hover .sparkle {
+  fill: white;
+  transform: scale(1.2);
+}
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+.clickable {
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.3s ease;
+}
+
+.clickable:hover {
+  filter: brightness(1.15);
+}
+
+:root {
+  --primary-color: #d96aa7;
+  --secondary-color: #191d1e;
+  --complimentary-color: #88bfb5;
+  --contrast-color: #f2e527;
+  --light-color: #d2a9d9;
+}
+
+.container {
+  background: #1919198b;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Montserrat, sans-serif;
+  margin-left: 70px;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100vh;
+  background: transparent;
+  width: 70px;
+}
+
+nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  font-size: 40px;
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.4s ease-out;
+  border: none;
+}
+
+nav a::after {
+  position: absolute;
+  background: transparent;
+  color: white;
+  top: 0;
+  left: 70px;
+  width: 70px;
+  height: 100%;
+  opacity: 0.5;
+  transform: perspective(400px) rotateY(90deg);
+  transform-origin: 0 100%;
+  transition: all 0.4s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14.5px;
+  font-weight: bold;
+}
+
+nav a:nth-child(1)::after {
+  content: "Home";
+}
+
+nav a:nth-child(2)::after {
+  margin-left: 20px;
+  content: "Dashboard";
+}
+
+nav a:nth-child(3)::after {
+  margin-left: 15px;
+  content: "Settings";
+}
+
+nav a:nth-child(4)::after {
+  margin-left: 15px;
+  content: "History";
+}
+
+nav a:hover {
+  transform: translateX(-70px);
+  background: transparent;
+}
+
+nav a:hover::after {
+  opacity: 1;
+  transform: perspective(400px) rotateY(0deg) scale(1);
+}
+
+nav a:hover i {
+  color: white;
+}
+
+section {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  transition: all ease-in 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section h1 {
+  color: #ffffff;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+#first {
+  background: var(--primary-color);
+}
+#second {
+  background: var(--complimentary-color);
+}
+
+#third {
+  background: var(--contrast-color);
+}
+
+#fourth {
+  background: var(--light-color);
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}

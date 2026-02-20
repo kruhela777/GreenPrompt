@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* In Carousel.css - update the container */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 400px;
+  background: transparent;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.container.loading {
+  background: #191d1e; /* Match your app background */
+}
+
+.container.loading .item {
+  opacity: 0;
+}
+
+.container.loaded .item {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+/* Update slide background */
+.container .slide {
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: transparent; /* Add this */
+}
+
+.container .slide .item {
+  width: 200px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 20px;
+  box-shadow: 0 30px 50px #505050;
+  background-position: 50% 50%;
+  background-size: cover;
+  display: inline-block;
+  transition: all 0.5s;
+}
+
+/* Ensure items cover properly */
+.slide .item:nth-child(1),
+.slide .item:nth-child(2) {
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transition: all 0.5s;
+  background-position: center; /* Add this */
+  background-repeat: no-repeat; /* Add this */
+  background-size: cover; /* Ensure this is present */
+}
+
+.slide .item:nth-child(3) {
+  left: 50%;
+}
+.slide .item:nth-child(4) {
+  left: calc(50% + 220px);
+}
+.slide .item:nth-child(5) {
+  left: calc(50% + 440px);
+}
+
+.slide .item:nth-child(n + 6) {
+  left: calc(50% + 660px);
+  opacity: 0;
+}
+
+.item .content {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  width: 300px;
+  text-align: left;
+  color: #eee;
+  transform: translate(0, -50%);
+  margin-top: 0;
+  margin-left: 0;
+  font-family: system-ui;
+  display: none;
+}
+
+.slide .item:nth-child(2) .content {
+  display: block;
+}
+
+.content .name {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0;
+  animation: animate 1s ease-in-out 1 forwards;
+}
+
+.content .des {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(33px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+    filter: blur(0);
+  }
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  left: 45%;
+  right: 50%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+}
+
+.button button {
+  width: 40px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  border: 2px solid #000000bd;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.578);
+}
+
+.button button:hover {
+  color: #000000;
+  border: 2px solid #ffffffbd;
+  transform: scale(1.1);
+}
+
+.button button:focus {
+  transform: scale(1.1);
+  background: #ffffff;
+  border: 2px solid #ffffffbd;
+}
+
+.button button:active {
+  transform: scale(1.02);
+}
+
+.next {
+  padding: 0 0 0 3px;
+}
+
+.prev {
+  padding: 0 3px 0 0;
+}
+
+/* Magic Stars Animation */
+@keyframes scale {
+  from,
+  to {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+:root {
+  --pista: rgb(255, 252, 173);
+  --badam: rgb(255, 229, 119);
+  --saffron: rgb(253, 166, 58);
+  --orange: rgb(255, 90, 0);
+}
+
+.magic {
+  display: inline-block;
+  position: relative;
+}
+
+.magic > .magic-star {
+  --size: clamp(15px, 1vw, 25px);
+
+  animation: scale 700ms ease forwards;
+  display: block;
+  height: var(--size);
+  left: var(--star-left);
+  position: absolute;
+  top: var(--star-top);
+  width: var(--size);
+}
+
+.magic > .magic-star > svg {
+  animation: rotate 1000ms linear infinite;
+  display: block;
+  opacity: 0.8;
+}
+
+.magic > .magic-star > svg > path {
+  fill: var(--orange);
+}
+
+.magic > .magic-text {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--pista),
+    var(--badam),
+    var(--orange),
+    var(--saffron),
+    var(--pista)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
