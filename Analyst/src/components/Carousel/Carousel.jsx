@@ -8,16 +8,16 @@ const Carousel = () => {
   // Define slides inside the component
   const slides = [
     {
-      id: 1,
-      name: "Energy Use",
-      description: "Analyzing power consumption and efficiency metrics",
-      image: "Images/light.jpg",
-    },
-    {
       id: 2,
       name: "Water",
       description: "Monitoring water usage and conservation strategies",
       image: "Images/water.jpg",
+    },
+    {
+      id: 1,
+      name: "Energy Use",
+      description: "Analyzing power consumption and efficiency metrics",
+      image: "Images/light.jpg",
     },
     {
       id: 3,

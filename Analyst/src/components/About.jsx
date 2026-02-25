@@ -3,7 +3,10 @@ import { useState, useEffect } from "react";
 import Carousel from "./Carousel/Carousel";
 function About() {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState("Dashboard"); // Default to first section
+  const [activeSection, setActiveSection] = useState(() => {
+    // Restore from localStorage on initial render
+    return localStorage.getItem("activeSection") || "Dashboard";
+  });
   const [stats, setStats] = useState([]);
   const [profileStats, setProfileStats] = useState([]);
   const [sessions, setSessions] = useState([]);
@@ -12,6 +15,11 @@ function About() {
   const [sessionsLoading, setSessionsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [apiStatus, setApiStatus] = useState("checking"); // 'checking', 'connected', 'failed'
+
+  // Persist activeSection to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("activeSection", activeSection);
+  }, [activeSection]);
 
   // Check if electronAPI is available
   useEffect(() => {
@@ -41,6 +49,17 @@ function About() {
       loadStats();
     }
   }, [apiStatus]);
+
+  // Load section-specific data when activeSection or API status changes
+  useEffect(() => {
+    if (apiStatus === "connected") {
+      if (activeSection === "Profile") {
+        loadTodayStats();
+      } else if (activeSection === "History") {
+        loadSessions();
+      }
+    }
+  }, [activeSection, apiStatus]);
 
   const loadStats = async () => {
     setStatsLoading(true);
@@ -226,136 +245,11 @@ function About() {
                   color: "white",
                 }}
               >
-                <h1 style={{ marginBottom: "30px" }}>Alignment tacticsss</h1>
+                <h1 style={{ marginBottom: "30px", color: "transparent" }}>
+                  Alignment tacticsss
+                </h1>
 
                 <div style={{ marginBottom: "40px" }}>{<Carousel />}</div>
-
-                <div
-                  style={{
-                    background: "rgba(0,0,0,0.3)",
-                    padding: "25px",
-                    borderRadius: "12px",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                  }}
-                >
-                  <h2 style={{ marginTop: 0, marginBottom: "15px" }}>
-                    Activity Stats (Last 7 Days)
-                  </h2>
-                  <div style={{ marginBottom: "15px", fontSize: "14px" }}>
-                    API Status:
-                    {apiStatus === "checking" && (
-                      <span style={{ color: "orange", marginLeft: "5px" }}>
-                        {" "}
-                        ⏳ Checking...
-                      </span>
-                    )}
-                    {apiStatus === "connected" && (
-                      <span style={{ color: "#00ff00", marginLeft: "5px" }}>
-                        {" "}
-                        ✅ Connected
-                      </span>
-                    )}
-                    {apiStatus === "failed" && (
-                      <span style={{ color: "#ff6b6b", marginLeft: "5px" }}>
-                        {" "}
-                        ❌ Not connected
-                      </span>
-                    )}
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "10px",
-                      marginBottom: "15px",
-                    }}
-                  >
-                    <button
-                      onClick={importSampleSession}
-                      disabled={apiStatus !== "connected"}
-                      style={{
-                        padding: "8px 16px",
-                        background:
-                          apiStatus === "connected" ? "#683fea" : "#cccccc",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "6px",
-                        cursor:
-                          apiStatus === "connected" ? "pointer" : "not-allowed",
-                        fontSize: "14px",
-                      }}
-                    >
-                      Import Sample
-                    </button>
-                    <button
-                      onClick={loadStats}
-                      disabled={apiStatus !== "connected"}
-                      style={{
-                        padding: "8px 16px",
-                        background:
-                          apiStatus === "connected" ? "#683fea" : "#cccccc",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "6px",
-                        cursor:
-                          apiStatus === "connected" ? "pointer" : "not-allowed",
-                        fontSize: "14px",
-                      }}
-                    >
-                      Refresh
-                    </button>
-                  </div>
-                  {statsLoading && <p>Loading stats...</p>}
-                  {error && <p style={{ color: "#ff6b6b" }}>Error: {error}</p>}
-                  {stats.length > 0 && (
-                    <table
-                      style={{
-                        width: "100%",
-                        borderCollapse: "collapse",
-                        fontSize: "14px",
-                      }}
-                    >
-                      <thead>
-                        <tr
-                          style={{
-                            borderBottom: "2px solid rgba(255,255,255,0.2)",
-                          }}
-                        >
-                          <th style={{ padding: "10px", textAlign: "left" }}>
-                            Date
-                          </th>
-                          <th style={{ padding: "10px", textAlign: "center" }}>
-                            Messages
-                          </th>
-                          <th style={{ padding: "10px", textAlign: "right" }}>
-                            Cost
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {stats.map((day) => (
-                          <tr
-                            key={day.day}
-                            style={{
-                              borderBottom: "1px solid rgba(255,255,255,0.1)",
-                            }}
-                          >
-                            <td style={{ padding: "10px", textAlign: "left" }}>
-                              {day.day}
-                            </td>
-                            <td
-                              style={{ padding: "10px", textAlign: "center" }}
-                            >
-                              {day.message_count}
-                            </td>
-                            <td style={{ padding: "10px", textAlign: "right" }}>
-                              ${day.total_cost?.toFixed(6)}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  )}
-                </div>
               </div>
             </section>
           )}
