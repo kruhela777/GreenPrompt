@@ -193,7 +193,7 @@ nav a:nth-child(2)::after {
 
 nav a:nth-child(3)::after {
   margin-left: 15px;
-  content: "Settings";
+  content: "Profile";
 }
 
 nav a:nth-child(4)::after {
