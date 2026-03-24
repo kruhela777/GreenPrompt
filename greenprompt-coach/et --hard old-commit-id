@@ -1,0 +1,132 @@
+[33mcommit 3fc94419df69c57c26d32b790567a26ab878d523[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: d39f282 288d49b
+Author: kruhela777 <ruhela.kritika777@gmail.com>
+Date:   Tue Mar 24 22:55:37 2026 +0530
+
+    Added greenprompt-coach project
+
+[33mcommit d39f2821e274ac1ab9661714dcd8675540da6f75[m
+Author: kruhela777 <ruhela.kritika777@gmail.com>
+Date:   Wed Feb 25 18:17:54 2026 +0530
+
+    Initial commit from Create Next App
+
+[33mcommit 288d49b94c238170c853b1b78ca373d00084fe36[m
+Author: yashgaming418@gmail.com <yashgaming418@gmail.com>
+Date:   Wed Feb 25 13:52:40 2026 +0530
+
+    Made the carousel consistent
+
+[33mcommit 825afd9bd80417030e342bc81f6ae9d4b128bfa3[m
+Author: yashgaming418@gmail.com <yashgaming418@gmail.com>
+Date:   Wed Feb 25 12:16:00 2026 +0530
+
+    FInally added the database for storing the actual stats from the user
+
+[33mcommit cfd34eb595ef4362d68588955a2ead07feb9698e[m
+Author: Yash Gawali <139348743+Dueyash@users.noreply.github.com>
+Date:   Fri Feb 20 09:59:51 2026 +0530
+
+    Update repository URL in README.md
+
+[33mcommit 5ca6e52f7542b677e47e8ca3e61e72c7c5369615[m
+Author: yashgaming418@gmail.com <yashgaming418@gmail.com>
+Date:   Fri Feb 20 09:58:18 2026 +0530
+
+    added the readme for analyst and a few tweaks to monitor readme
+
+[33mcommit 6f0f915377c111ecc63cf176ae5863e9ca1d2476[m
+Author: yashgaming418@gmail.com <yashgaming418@gmail.com>
+Date:   Fri Feb 20 09:50:17 2026 +0530
+
+    added analyst for green prompt
+
+[33mcommit 5fc078878dd9770d27e729f00faa03e0bb206c8d[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:19:01 2026 +0530
+
+    Add files via upload
+
+[33mcommit 30c19db10ef1275b7ea803cba96803d14ac0690b[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:18:35 2026 +0530
+
+    Delete MONITOR/icons/icon32.png
+
+[33mcommit e4e0d90a203ea786ed34a8606305670e72a0828d[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:17:07 2026 +0530
+
+    Add files via upload
+
+[33mcommit 6bba6bbe856d7b127c67177b90a34a6a9cdf1f9e[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:10:34 2026 +0530
+
+    Delete MONITOR/t
+
+[33mcommit 109e49ae50c131d31ac7ae27ecf02cbc7cdc0d16[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:10:23 2026 +0530
+
+    Delete MONITOR/icons/t
+
+[33mcommit 64395cf2cc091c6f09ff5080302c58321793447c[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:09:37 2026 +0530
+
+    Revise README for installation and feature updates
+    
+    Updated README to reflect new installation instructions and features.
+
+[33mcommit feeeb211fde9655393a1cffd751b508a4c9cd1b6[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:07:47 2026 +0530
+
+    Revise README for clarity and additional features
+    
+    Updated README to enhance clarity and structure, added new features and installation instructions.
+
+[33mcommit 3dd3f78e549668ce0b50f223e6e6f8b0c6351355[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:03:01 2026 +0530
+
+    added icon
+
+[33mcommit 944baeb16da163c70b2d92597f57d0baa66b6b64[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:02:37 2026 +0530
+
+    Create t
+
+[33mcommit 1fd1c3edf88e7dc123ea8c056a4536b01e9d0b4b[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:02:20 2026 +0530
+
+    added main files
+
+[33mcommit 3f3610bf9ab09fad5aa382470754d0dba1d14e11[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Tue Feb 17 18:01:06 2026 +0530
+
+    Create t
+
+[33mcommit 6c487ed3198ec089284ed17fe1a6b4c2f3aed19b[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Sat Oct 25 11:22:27 2025 +0530
+
+    Revise README for clarity and project overview
+    
+    Updated README.md to enhance project description and structure.
+
+[33mcommit 6da49874bcd50124041cbcbc8b0649cf747bc9bf[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Sat Oct 25 11:06:42 2025 +0530
+
+    added whiteboard img and ppt
+
+[33mcommit 112f8d563e4668d127ed7923361e0d23c5ad3f7e[m
+Author: Ishant Singh <ishantmanjit@gmail.com>
+Date:   Sat Oct 25 11:02:04 2025 +0530
+
+    Initial commit
